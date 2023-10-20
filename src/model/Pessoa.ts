@@ -146,4 +146,8 @@ export class Pessoa {
                     Peso: ${this.peso};
         `)
     }
+    public cadastroPessoa(Jubileu: Pessoa) {
+        // Persistindo os dados
+    console.log(`${Jubileu.nome} cadastrado com sucesso`)
+    }
 }

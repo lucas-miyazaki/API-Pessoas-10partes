@@ -127,6 +127,10 @@ class Pessoa {
                     Peso: ${this.peso};
         `);
     }
+    cadastroPessoa(Jubileu) {
+        // Persistindo os dados
+        console.log(`${Jubileu.nome} cadastrado com sucesso`);
+    }
 }
 exports.Pessoa = Pessoa;
 //# sourceMappingURL=Pessoa.js.map
