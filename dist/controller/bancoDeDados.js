@@ -2,7 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.inicializarPessoas = exports.listarPessoas = exports.persistirPessoa = void 0;
 const Pessoa_1 = require("../model/Pessoa");
+/**
+ * Lista de pessoas que são armazenadas durante a execução do programa
+ */
 let bancoDadosPessoa = [];
+/**
+ * Cadastra uma pessoa na lista, simulando um banco de dados.
+ * Os dados são armazenados somente durante tempo de execução
+ *
+ * @param pessoa - Pessoa a ser inserida na lista
+ * @returns Em caso de erro, é retornado os detalhes do erro a quem chamou esta função
+ */
 function persistirPessoa(pessoa) {
     //persistindo os dados
     try {
@@ -13,10 +23,18 @@ function persistirPessoa(pessoa) {
     }
 }
 exports.persistirPessoa = persistirPessoa;
+/**
+ * Lista todas as pessoas cadastradas
+ * @returns Lista de pessoas cadastradas
+ */
 function listarPessoas() {
     return bancoDadosPessoa;
 }
 exports.listarPessoas = listarPessoas;
+/**
+ * Método para inicializar o array com 5 pessoas.
+ * Apenas para a aplicação não ter um array vazio
+ */
 function inicializarPessoas() {
     bancoDadosPessoa.push(new Pessoa_1.Pessoa('José Bryan Yuri Fogaça', '10477613195', new Date(1998, 8, 29), '53984291927', 'Rua Capitão Felino Alves', 174, 102));
     bancoDadosPessoa.push(new Pessoa_1.Pessoa('Pedro Marcos César Santos', '92045970035', new Date(1986, 4, 22), '62999425959', 'Rua 3', 167, 76));
