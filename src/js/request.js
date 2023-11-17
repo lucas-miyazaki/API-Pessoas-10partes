@@ -1,8 +1,17 @@
-const { response } = require("express");
+const url_server = "http://localhost:3000";
 
-const url_server = "http://localhost:3000"
+function listarPessoas() {
+    fetch(`${url_server}/pessoas`)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(pessoa => {
+                console.log(pessoa.endereco);
+            });
+        });
+}
+
 function Cadastrar() {
-    console.log("Enviando dados ao servidor...")
+    console.log("Enviando dados ao servidor...");
     const dados = {
         nome: document.getElementById("nome_Usuario").value,
         cpf: document.getElementById("cpf_Usuario").value,
@@ -13,7 +22,7 @@ function Cadastrar() {
         altura: document.getElementById("altura_Usuario").value
     };
     console.log(dados);
-    window.alert(dados);
+    window.alert(JSON.stringify(dados));
 
     fetch(`${url_server}/cadastro`, {
         method: 'POST',
@@ -23,8 +32,8 @@ function Cadastrar() {
         body: JSON.stringify(dados)
     })
         .then(response => response.json())
-        .then(dados => {
-            console.log('Resposta do servidor:', dados);
+        .then(data => {
+            console.log('Resposta do servidor:', data);
         })
         .catch(error => {
             console.error('Erro ao enviar dados para o servidor:', error);
